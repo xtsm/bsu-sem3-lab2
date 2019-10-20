@@ -2,4 +2,4 @@
 
 all:
 	javac -d . *.java
-	java Shapes.Main
+	java -Dswing.aatext=true -Dawt.useSystemAAFontSettings=on Shapes.Main
