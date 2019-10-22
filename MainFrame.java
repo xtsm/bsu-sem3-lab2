@@ -1,10 +1,20 @@
-package Shapes;
+package lab2.gui;
 import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import lab2.gui.dialog.addshape.AddShapeDialog;
+import lab2.shapes.plump.Shape3D;
+import lab2.knapsack.Knapsack;
+import lab2.knapsack.KnapsackFullException;
 
-class MainFrame extends JFrame {
+public class MainFrame extends JFrame {
+  private JPanel mainPanel;
+
+  private JList<Shape3D> itemsList;
+
+  private Knapsack knapsack;
+
   public MainFrame() {
     super("Shapes");
     this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -32,7 +42,7 @@ class MainFrame extends JFrame {
         Object result = dialog.getValue();
         if (result instanceof Shape3D) {
           try {
-            knapsack.Put((Shape3D) result);
+            knapsack.put((Shape3D) result);
           } catch (KnapsackFullException e) {
             JOptionPane.showMessageDialog(MainFrame.this, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
           }
@@ -49,7 +59,7 @@ class MainFrame extends JFrame {
         if (index < 0) {
           return;
         }
-        knapsack.Remove(index);
+        knapsack.remove(index);
       }
     });
     mainPanel.add(deleteButton, gridConfig);
@@ -93,7 +103,4 @@ class MainFrame extends JFrame {
     this.pack();
     this.setVisible(true);
   }
-  private JPanel mainPanel;
-  private JList<Shape3D> itemsList;
-  private Knapsack knapsack;
 }

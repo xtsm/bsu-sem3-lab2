@@ -1,13 +1,15 @@
-package Shapes;
+package lab2.shapes.plump;
 
-class Cuboid extends Shape3D {
+public class Cuboid extends Shape3D {
+  private double a, b, c;
+
   public Cuboid(double newA, double newB, double newC) {
     a = newA;
     b = newB;
     c = newC;
   }
+
   public double getVolume() {
     return a * b * c;
   }
-  private double a, b, c;
 }

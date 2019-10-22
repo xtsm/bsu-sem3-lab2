@@ -1,9 +1,17 @@
-package Shapes;
+package lab2.gui.dialog.addshape;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import lab2.shapes.plump.Shape3D;
 
-class AddShapeDialog extends JDialog {
+public class AddShapeDialog extends JDialog {
+  private JPanel mainPanel;
+
+  private JPanel cardPanel;
+
+  private JComboBox<String> chooser;
+
+  private Shape3D value;
 
   public AddShapeDialog(JFrame owner) {
     super(owner, "Add shape...", true);
@@ -47,15 +55,13 @@ class AddShapeDialog extends JDialog {
     this.add(mainPanel);
     this.pack();
   }
+
   public void setValue(Shape3D shape) {
     value = shape;
     setVisible(false);
   }
+
   public Shape3D getValue() {
     return value;
   }
-  private JPanel mainPanel;
-  private JPanel cardPanel;
-  private JComboBox<String> chooser;
-  private Shape3D value;
 }

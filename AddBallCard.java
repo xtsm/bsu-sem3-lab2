@@ -1,12 +1,25 @@
-package Shapes;
+package lab2.gui.dialog.addshape;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import lab2.shapes.plump.Ball;
+import lab2.shapes.plump.Shape3D;
 
 class AddBallCard extends AddShapeCard {
+  private JTextField size;
+
+  public AddBallCard() {
+    this.setLayout(new GridLayout(1, 2));
+    
+    this.add(new JLabel("Radius:"));
+    size = new JTextField();
+    this.add(size);
+  }
+
   public String getTitle() {
     return "Ball";
   }
+
   public Shape3D getValue() {
     double a;
     try {
@@ -17,12 +30,4 @@ class AddBallCard extends AddShapeCard {
     }
     return new Ball(a);
   }
-  public AddBallCard() {
-    this.setLayout(new GridLayout(1, 2));
-    
-    this.add(new JLabel("Radius:"));
-    size = new JTextField();
-    this.add(size);
-  }
-  private JTextField size;
 }

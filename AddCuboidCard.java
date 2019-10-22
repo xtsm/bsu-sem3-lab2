@@ -1,12 +1,31 @@
-package Shapes;
+package lab2.gui.dialog.addshape;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import lab2.shapes.plump.Cuboid;
+import lab2.shapes.plump.Shape3D;
 
 class AddCuboidCard extends AddShapeCard {
+  private JTextField sizea, sizeb, sizec;
+
+  public AddCuboidCard() {
+    this.setLayout(new GridLayout(3, 2));
+    
+    this.add(new JLabel("Width:"));
+    sizea = new JTextField();
+    this.add(sizea);
+    this.add(new JLabel("Height:"));
+    sizeb = new JTextField();
+    this.add(sizeb);
+    this.add(new JLabel("Depth:"));
+    sizec = new JTextField();
+    this.add(sizec);
+  }
+
   public String getTitle() {
     return "Cuboid";
   }
+
   public Shape3D getValue() {
     double a, b, c;
     try {
@@ -29,18 +48,4 @@ class AddCuboidCard extends AddShapeCard {
     }
     return new Cuboid(a, b, c);
   }
-  public AddCuboidCard() {
-    this.setLayout(new GridLayout(3, 2));
-    
-    this.add(new JLabel("Width:"));
-    sizea = new JTextField();
-    this.add(sizea);
-    this.add(new JLabel("Height:"));
-    sizeb = new JTextField();
-    this.add(sizeb);
-    this.add(new JLabel("Depth:"));
-    sizec = new JTextField();
-    this.add(sizec);
-  }
-  private JTextField sizea, sizeb, sizec;
 }
